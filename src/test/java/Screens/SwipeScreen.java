@@ -63,9 +63,6 @@ public class SwipeScreen extends BaseScreen {
     return isElementDisplayed(carousel);
   }
 
-  public void test(int index){
-    System.out.println(dotsList.size());
-  }
 
   public int getDotHeightByIndex(int index) {
     return dotsList.get(index).getSize().getHeight();
