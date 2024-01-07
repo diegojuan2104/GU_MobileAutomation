@@ -49,7 +49,7 @@ public class BaseScreen {
    *
    * @param element AndroidElement to click on
    */
-  protected static void clickOnElement(AndroidElement element) {
+  protected void clickOnElement(AndroidElement element) {
     waitUntilElementIsDisplayed(element).click();
   }
 

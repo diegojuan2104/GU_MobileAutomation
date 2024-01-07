@@ -1,4 +1,4 @@
-package Utils.Data;
+package Utils;
 
 import com.github.javafaker.Faker;
 

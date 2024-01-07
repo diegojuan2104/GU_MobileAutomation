@@ -1,14 +1,19 @@
-package Utils.Data;
+package Utils;
 
 import Screens.*;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CommonActions extends BaseScreen{
 
-  public CommonActions(AndroidDriver<AndroidElement> driver) {
-    super(driver);
+public class GenericUtils {
+
+  AndroidDriver driver;
+
+  public GenericUtils(AndroidDriver<AndroidElement> driver) {
+    this.driver = driver;
   }
 
   /**
@@ -18,8 +23,8 @@ public class CommonActions extends BaseScreen{
    * @return Object representing the screen related to the option
    * @throws NoClassDefFoundError if no class is defined for the option
    */
-  public static Object clickOnMenuOption(String option) {
-    AndroidElement optionElement = driver.findElement(MobileBy.AccessibilityId(option));
+  public  Object clickOnMenuOption(String option) {
+    AndroidElement optionElement = (AndroidElement) driver.findElement(MobileBy.AccessibilityId(option));
     clickOnElement(optionElement);
 
     switch (option) {
@@ -38,6 +43,16 @@ public class CommonActions extends BaseScreen{
       default:
         throw new NoClassDefFoundError("There's no class defined for: " + option);
     }
+  }
+
+  protected void clickOnElement(AndroidElement element) {
+    waitUntilElementIsDisplayed(element).click();
+  }
+
+  protected  AndroidElement waitUntilElementIsDisplayed(AndroidElement element) {
+    WebDriverWait wait = new WebDriverWait(driver, 15);
+    wait.until(ExpectedConditions.visibilityOf(element));
+    return element;
   }
 
 }
