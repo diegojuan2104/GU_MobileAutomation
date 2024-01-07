@@ -1,0 +1,7 @@
+Screens\HomeScreen.class
+Screens\DragScreen.class
+tests\BaseMobileTest.class
+Screens\BaseScreen.class
+Screens\SwipeScreen.class
+tests\NavigationOnTheBottomMenuBarTests.class
+Screens\FormsScreen.class
