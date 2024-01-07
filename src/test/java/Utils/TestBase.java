@@ -17,18 +17,22 @@ public class TestBase {
   Dotenv dotenv = Dotenv.load();
 
   public AndroidDriver WebDriverManager() {
-    // Set up capabilities and initialize the driver
-    try {
-      DesiredCapabilities capabilities = environmentSetup();
-      driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723"), capabilities);
 
-      PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+   if (driver == null) {
+     try {
+       DesiredCapabilities capabilities = environmentSetup();
+       driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723"), capabilities);
 
-      return driver;
-    } catch (MalformedURLException e) {
-      e.printStackTrace();
-      return null;
-    }
+       PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+
+       return driver;
+     } catch (MalformedURLException e) {
+       e.printStackTrace();
+       return null;
+     }
+
+   }
+    return driver;
   }
 
   private DesiredCapabilities environmentSetup() {

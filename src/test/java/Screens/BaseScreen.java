@@ -29,8 +29,8 @@ public class BaseScreen {
    * @return WebElement once it's displayed
    */
   protected static WebElement waitUntilElementIsDisplayed(AndroidElement element) {
-    WebDriverWait wait = new WebDriverWait(driver, 15);
-    wait.until(ExpectedConditions.visibilityOf(element));
+    WebDriverWait wait = new WebDriverWait(driver, 20);
+    wait.until(ExpectedConditions.elementToBeClickable(element));
     return element;
   }
 

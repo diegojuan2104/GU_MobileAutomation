@@ -16,7 +16,7 @@ Feature: Bottom Menu Navigation
     Then validate Login section elements
 
   Scenario: Navigate to Home Section
-    Given the user is on another section
+    Given the user is not in home Section
     When the user taps the Home icon on the bottom menu bar
     Then validate Home section elements
 
